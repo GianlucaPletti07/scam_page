@@ -1,97 +1,44 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="it">
 <head>
-    <title>Login - Negozio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 400px;
-        }
-        h1 { color: #e74c3c; font-size: 28px; }
-        .meme { font-size: 60px; margin: 20px 0; }
-        .warning {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-            font-weight: bold;
-            color: #856404;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        button {
-            background: #e74c3c;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            margin-top: 10px;
-            width: 100%;
-        }
-        button:hover { background: #c0392b; }
-        .info {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-        }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <title>Negozio</title>
 </head>
 <body>
-    <div class="container">
-        <div class="meme">😈💀🎃</div>
-        <div class="warning">
-            ⚠️ SEI STATO VITTIMA DI UN ATTACCO XSS! ⚠️
+
+<div class="container grid-lg">
+    <header class="navbar">
+        <section class="navbar-section">
+            <a href="#" class="navbar-brand text-bold mr-2">Tutti i capi</a>
+            <a href="#" class="btn btn-link">Uomo</a>
+            <a href="#" class="btn btn-link">Donna</a>
+            <a href="#" class="btn btn-link">Login</a>
+            <a href="#" class="btn btn-link">Vai alla pagina di amministrazione</a>
+        </section>
+    </header>
+
+    <h1>Esempio negozio con pattern MVC</h1>
+    <h2>Top</h2>
+
+    <div class="card">
+        <div class="card-image">
+            <img src="img/fec9a5bd02363b3173186f553e560d1f622087de.jpg"
+                 class="img-responsive" alt="Giacca Elegante">
         </div>
-        <p style="font-size: 18px; color: #e74c3c; font-weight: bold;">
-            Inserisci le tue credenziali, nessuno le ruberà!
-        </p>
-        
-        <form onsubmit="return handleSubmit(event)">
-            <input type="text" placeholder="Username" id="user" required>
-            <input type="password" placeholder="Password" id="pass" required>
-            <button type="submit">Submit</button>
-        </form>
-        
-        <div class="info">
-            <p><strong>Dimostrazione educativa di vulnerabilità XSS</strong></p>
-            <p>Questa è una pagina FAKE per mostrare come un attacco XSS può reindirizzare gli utenti a siti di phishing.</p>
-            <p id="stolen" style="color: #e74c3c; font-weight: bold; margin-top: 15px;"></p>
+        <div class="card-header">
+            <div class="card-title h5">Top</div>
+            <div class="card-subtitle text-gray">19 €</div>
+        </div>
+        <div class="card-body">
+            Top di cotone naturale, colori vari
+        </div>
+        <div class="card-footer">
+            <a href="#">Torna al negozio</a>
         </div>
     </div>
-    
-    <script>
-        function handleSubmit(e) {
-            e.preventDefault();
-            const user = document.getElementById('user').value;
-            const pass = document.getElementById('pass').value;
-            document.getElementById('stolen').innerHTML = 
-                '🎯 RUBATO!<br>User: ' + user + '<br>Pass: ' + pass.replace(/./g, '*') + 
-                '<br><br>⚠️ In un attacco reale, questi dati andrebbero all\'attaccante!';
-            return false;
-        }
-    </script>
+
+</div>
 </body>
 </html>
